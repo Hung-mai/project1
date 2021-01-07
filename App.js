@@ -15,6 +15,11 @@ import DeleteCategoryScreen from './screens/DeleteCategoryScreen';
 import AddIncomeScreen from './screens/transaction/AddIncomeScreen'
 import AddSpendingScreen from './screens/transaction/AddSpendingScreen'
 import CompletedPlansScreen from './screens/plan/CompletedPlansScreen'
+import PeriodicTransactionScreen from './screens/setting/PeriodicTransactionScreen'
+import AddTab11 from './screens/setting/AddTab11'
+import AddTab12 from './screens/setting/AddTab12'
+import Tab11 from './screens/setting/Tab11'
+import Tab12 from './screens/setting/Tab12'
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -109,6 +114,41 @@ function PlanStackScreen() {
         </PlanStack.Navigator>
     );
 }
+// định kỳ
+const PeriodicTransactionStack = createStackNavigator();
+function PeriodicTransactionStackScreen() {
+    return (
+        <PeriodicTransactionStack.Navigator initialRouteName="PeriodicTransaction">
+            <PeriodicTransactionStack.Screen name="PeriodicTransaction" component={PeriodicTransactionScreen} options={{
+                title: 'Những khoản định kỳ', headerStyle: {
+                    backgroundColor: '#d789d7',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <PeriodicTransactionStack.Screen name="AddTab11" component={AddTab11} options={{
+                title: 'Thu định kỳ', headerStyle: {
+                    backgroundColor: '#d789d7',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <PeriodicTransactionStack.Screen name="AddTab12" component={AddTab12} options={{
+                title: 'Chi định kỳ', headerStyle: {
+                    backgroundColor: '#d789d7',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+        </PeriodicTransactionStack.Navigator>
+    );
+}
 
 // setting stack
 const SettingStack = createStackNavigator();
@@ -124,7 +164,7 @@ function SettingStackScreen() {
                     fontWeight: 'bold',
                 },
             }} />
-            <OverviewStack.Screen name="AddCategory" component={AddCategoryScreen} options={{
+            <SettingStack.Screen name="AddCategory" component={AddCategoryScreen} options={{
                 title: 'Thêm danh mục', headerStyle: {
                     backgroundColor: '#d789d7',
                 },
@@ -133,7 +173,7 @@ function SettingStackScreen() {
                     fontWeight: 'bold',
                 },
             }} />
-            <OverviewStack.Screen name="DeleteCategory" component={DeleteCategoryScreen} options={{
+            <SettingStack.Screen name="DeleteCategory" component={DeleteCategoryScreen} options={{
                 title: 'Xóa danh mục', headerStyle: {
                     backgroundColor: '#d789d7',
                 },
@@ -142,8 +182,17 @@ function SettingStackScreen() {
                     fontWeight: 'bold',
                 },
             }} />
-            <OverviewStack.Screen name="CompletedPlans" component={CompletedPlansScreen} options={{
+            <SettingStack.Screen name="CompletedPlans" component={CompletedPlansScreen} options={{
                 title: 'Kế hoạch đã hoàn thành', headerStyle: {
+                    backgroundColor: '#d789d7',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <SettingStack.Screen name="PeriodicTransaction" component={PeriodicTransactionStackScreen} options={{
+                title: 'Recurring Transactions', headerStyle: {
                     backgroundColor: '#d789d7',
                 },
                 headerTintColor: '#fff',

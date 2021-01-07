@@ -432,7 +432,14 @@ export default class Tab3 extends React.Component {
             totalIncome4: getIncomeCurrentMonth(monthYear4[0], monthYear4[1]),
             totalSpending4: getSpendingCurrentMonth(monthYear4[0], monthYear4[1]),
         })
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
     }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 }
 
 const styles = StyleSheet.create({

@@ -11,6 +11,7 @@ import {
     RefreshControl,
     SafeAreaView,
 } from 'react-native';
+import { Dimensions } from 'react-native';
 
 export default class Transaction extends React.Component {
     constructor(props) {
@@ -29,12 +30,13 @@ export default class Transaction extends React.Component {
     render() {
         return (
             <SafeAreaView style={{ backgroundColor: "#fff", flex: 1 }} >
+                
                 <ScrollView
                     refreshControl={
                         <RefreshControl colors={["red", "green", "orange"]} refreshing={this.state.refreshing} onRefresh={() => this.onRefresh()} />
                     }
                 >
-                    <View style={{ height: 560 }}>
+                    <View style={{ height: Dimensions.get('window').height - 130 }}>
 
                         <DateTime parentCallBack={(childDate) => this.callBackDate(childDate)} />
 
@@ -203,7 +205,14 @@ export default class Transaction extends React.Component {
         this.listenIncomeTransactions();
         this.listenSpedingTransactions();
 
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
     }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 
     wait(timeout) {
         return new Promise(resolve => {

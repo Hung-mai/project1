@@ -60,7 +60,14 @@ export default class Tab1 extends React.Component {
 
         this.state.incomeByMonth[4] = getIncomeCurrentMonth(monthYear4[0], monthYear4[1]);
         this.state.spendingByMonth[4] = getSpendingCurrentMonth(monthYear4[0], monthYear4[1]);
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
     }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 
     wait(timeout) {
         return new Promise(resolve => {

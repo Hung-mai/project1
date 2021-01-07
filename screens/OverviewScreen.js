@@ -78,7 +78,15 @@ export default class Overview extends React.Component {
         setTimeout(() => {
             this.onRefresh();
         })
+
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
     }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 
     wait(timeout) {
         return new Promise(resolve => {

@@ -16,19 +16,19 @@ export default class Statistical extends React.Component {
                         <TabHeading style={{ backgroundColor: "#fff" }}>
                             <Text style={{ fontWeight: "700", color: "#d789d7" }}>Theo danh mục</Text>
                         </TabHeading>}>
-                        <Tab1 />
+                        <Tab1 navigation={this.props.navigation} />
                     </Tab>
                     <Tab heading={
                         <TabHeading style={{ backgroundColor: "#fff" }}>
                             <Text style={{ fontWeight: "700", color: "#d789d7" }}>Biến động</Text>
                         </TabHeading>}>
-                        <Tab2 />
+                        <Tab2 navigation={this.props.navigation}/>
                     </Tab>
                     <Tab heading={
                         <TabHeading style={{ backgroundColor: "#fff" }}>
                             <Text style={{ fontWeight: "700", color: "#d789d7" }}>Tổng quan theo tháng</Text>
                         </TabHeading>}>
-                        <Tab3 />
+                        <Tab3 navigation={this.props.navigation}/>
                     </Tab>
                 </Tabs>
             </Container>

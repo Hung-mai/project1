@@ -12,7 +12,7 @@ export default function CardItemButton({ navigation }) {
                         <Body >
                             <Text>
                                 Thêm danh mục giao dịch.
-                </Text>
+                            </Text>
                         </Body>
                     </CardItem>
                 </Card>
@@ -22,7 +22,7 @@ export default function CardItemButton({ navigation }) {
                         <Body>
                             <Text>
                                 Xóa danh mục giao dịch.
-                </Text>
+                            </Text>
                         </Body>
                     </CardItem>
                 </Card>
@@ -32,17 +32,17 @@ export default function CardItemButton({ navigation }) {
                         <Body>
                             <Text>
                                 Những kế hoạch đã hoàn thành
-                </Text>
+                            </Text>
                         </Body>
                     </CardItem>
                 </Card>
 
                 <Card>
-                    <CardItem button onPress={() => alert("This is Card Body")}>
+                    <CardItem button onPress={() => navigation.navigate('PeriodicTransaction')}>
                         <Body>
                             <Text>
-                                Cập nhật thông tin.
-                </Text>
+                                Thiết lập khoản thu chi định kỳ
+                            </Text>
                         </Body>
                     </CardItem>
                 </Card>
@@ -52,7 +52,7 @@ export default function CardItemButton({ navigation }) {
                         <Body>
                             <Text>
                                 Log out
-                </Text>
+                            </Text>
                         </Body>
                     </CardItem>
                 </Card>

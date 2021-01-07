@@ -5,6 +5,7 @@ import { Container, Header, Content, Card, CardItem, Icon, Right, Body, Button, 
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
 import { firebaseApp } from '../components/FirebaseConfig'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Dimensions } from 'react-native';
 
 import {
     ScrollView,
@@ -74,7 +75,14 @@ export default class Plan extends React.Component {
                 clearInterval(lap);
             }
         }, 1000);
-    };
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
+    }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 
     wait(timeout) {
         return new Promise(resolve => {
@@ -102,7 +110,7 @@ export default class Plan extends React.Component {
                         <RefreshControl colors={["red", "green", "orange"]} refreshing={this.state.refreshing} onRefresh={() => this.onRefresh()} />
                     }
                 >
-                    <View style={{ height: 630 }}>
+                    <View style={{ height: Dimensions.get('window').height - 130 }}>
 
                         {/* modal */}
                         <View>

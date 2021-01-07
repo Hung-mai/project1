@@ -89,7 +89,14 @@ export default class Tab2 extends React.Component {
         this.state.totalSpending4 = getSpendingCurrentMonth(monthYear4[0], monthYear4[1]).total;
 
         this.getWallet();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
     }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
 
     wait(timeout) {
         return new Promise(resolve => {
