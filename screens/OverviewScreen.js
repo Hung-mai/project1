@@ -4,6 +4,8 @@ import { Container, Header, Content, Card, CardItem, Body } from "native-base";
 import { firebaseApp } from '../components/FirebaseConfig'
 import { getIncomeCurrentMonth, getSpendingCurrentMonth } from '../api/OverviewApi'
 import { getMonthAndYear } from '../api/MonthAndYear'
+import Toast from 'react-native-toast-message';
+import {recurringIncome, recurringSpending} from '../api/RecurringTransaction'
 
 import {
     ScrollView,
@@ -80,6 +82,22 @@ export default class Overview extends React.Component {
         })
 
         this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            let check1 = recurringIncome();
+            let check2 = recurringSpending();
+
+            if(check1 || check2){
+                Toast.show({
+                    type: 'info',
+                    position: 'top',
+                    text1: 'Thông báo',
+                    text2: 'Một giao dịch định kỳ vừa được thực hiện!',
+                    visibilityTime: 4000,
+                    autoHide: true,
+                    topOffset: 30,
+                    bottomOffset: 40,
+                  });
+            }
+
             this.onRefresh();
           });
     }
@@ -121,6 +139,7 @@ export default class Overview extends React.Component {
     render() {
         return (
             <SafeAreaView style={{backgroundColor: '#fff', flex: 1}}>
+                <Toast style={{zIndex: 10}}  ref={(ref) => Toast.setRef(ref)} />
                 <ScrollView
                     refreshControl={
                         <RefreshControl colors={["red", "green", "orange"]} refreshing={this.state.refreshing} onRefresh={() => this.onRefresh()} />

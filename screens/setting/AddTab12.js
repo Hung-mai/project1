@@ -63,8 +63,8 @@ export default class AddTab12 extends React.Component {
                     date: this.state.date,
                     money: this.state.money,
                     user_id: 1,
-                    spending_category_id: this.state.selectedCategory.id
-
+                    spending_category_id: this.state.selectedCategory.id,
+                    traded_month: new Date().getMonth()-1
                 })
                 Alert.alert('Thông báo', 'Thêm thành công !');
                 this.props.navigation.navigate('PeriodicTransaction');

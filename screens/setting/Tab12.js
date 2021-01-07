@@ -120,12 +120,12 @@ export default class Tab11 extends React.Component {
                                     keyExtractor={spending => spending}
                                     renderItem={(spending) => (
                                         <CardItem bordered>
-                                            <Body style={{ borderLeftWidth: 5, borderLeftColor: "green" }}>
+                                            <Body style={{ borderLeftWidth: 5, borderLeftColor: "red" }}>
                                                 <View style={{ flexDirection: "row" }}>
                                                     <View style={{ width: "82%", marginLeft: 10 }}>
                                                         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
                                                             <Text style={{ fontSize: 15 }}>{spending.item.category}</Text>
-                                                            <Text style={{ fontSize: 14, marginTop: 2, color: "green" }}> {parseInt(spending.item.money).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'} </Text>
+                                                            <Text style={{ fontSize: 14, marginTop: 2, color: "red" }}> {parseInt(spending.item.money).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'} </Text>
                                                         </View>
                                                         <View style={{ flexDirection: "row", marginTop: 3 }}>
                                                             <Text style={{ fontSize: 12 }}>Thu nhập</Text>
