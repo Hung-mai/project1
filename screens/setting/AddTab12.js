@@ -52,9 +52,6 @@ export default class AddTab12 extends React.Component {
         })
     }
 
-    componentDidMount() {
-        this.getCategory();
-    }
 
     confirmAddSpending() {
         try {
@@ -127,7 +124,10 @@ export default class AddTab12 extends React.Component {
                         <Ionicons style={{ color: "yellow" }} name={this.state.icon} size={35} />
                     </View>
                     <TouchableOpacity style={{ width: 200, height: 40, flexDirection: 'row', justifyContent: "space-between", marginTop: 13 }}
-                        onPress={() => this.setState({ modal: true })}
+                        onPress={() => {
+                            this.getCategory();
+                            this.setState({ modal: true })
+                        }}
                     >
                         <Text style={{ fontSize: 20, fontWeight: "bold", color: "red" }}>{this.state.selectedCategory.name}</Text>
                     </TouchableOpacity>
@@ -220,6 +220,18 @@ export default class AddTab12 extends React.Component {
                 </View>
             </View>
         );
+    }
+
+    
+    componentDidMount() {
+        this.getCategory();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.getCategory();
+        });
+    }
+
+    componentWillUnmount() {
+        this._unsubscribe();
     }
 }
 

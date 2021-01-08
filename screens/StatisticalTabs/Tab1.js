@@ -103,7 +103,7 @@ export default class Tab1 extends React.Component {
         this.state.incomeByMonth[4] = getIncomeCurrentMonth(monthYear4[0], monthYear4[1]);
         this.state.spendingByMonth[4] = getSpendingCurrentMonth(monthYear4[0], monthYear4[1]);
 
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
 

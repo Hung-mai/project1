@@ -74,7 +74,7 @@ export default class Tab3 extends React.Component {
             totalSpending4: getSpendingCurrentMonth(monthYear4[0], monthYear4[1]),
         })
 
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
     render() {

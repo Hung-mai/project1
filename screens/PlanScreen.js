@@ -97,7 +97,7 @@ export default class Plan extends React.Component {
         this.listenTotalMoney();
         this.listenData();
 
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
     render() {

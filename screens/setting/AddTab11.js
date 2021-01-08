@@ -7,6 +7,7 @@ import { firebaseApp } from '../../components/FirebaseConfig'
 import { Card, CardItem, Text, Body, Item, Input, Button, Picker } from "native-base";
 
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { set } from 'react-native-reanimated';
 
 
 export default class AddTab11 extends React.Component {
@@ -52,9 +53,6 @@ export default class AddTab11 extends React.Component {
         })
     }
 
-    componentDidMount() {
-        this.getCategory();
-    }
 
     confirmAddIncome() {
         try {
@@ -127,7 +125,10 @@ export default class AddTab11 extends React.Component {
                         <Ionicons style={{ color: "pink" }} name={this.state.icon} size={35} />
                     </View>
                     <TouchableOpacity style={{ width: 200, height: 40, flexDirection: 'row', justifyContent: "space-between", marginTop: 13 }}
-                        onPress={() => this.setState({ modal: true })}
+                        onPress={() => {
+                            this.getCategory();
+                            this.setState({ modal: true })
+                        }}
                     >
                         <Text style={{ fontSize: 20, fontWeight: "bold", color: "green" }}>{this.state.selectedCategory.name}</Text>
                     </TouchableOpacity>
@@ -220,6 +221,18 @@ export default class AddTab11 extends React.Component {
                 </View>
             </View>
         );
+    }
+
+    
+    componentDidMount() {
+        this.getCategory();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.getCategory();
+        });
+    }
+
+    componentWillUnmount() {
+        this._unsubscribe();
     }
 }
 

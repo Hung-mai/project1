@@ -28,6 +28,17 @@ export default class Tab11 extends React.Component {
 
     
 
+    componentDidMount(){
+        this.listenIncomeTransactions();
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.onRefresh();
+          });
+    }
+
+    componentWillUnmount() {
+        this._unsubscribe();
+      }
+
 
     wait(timeout) {
         return new Promise(resolve => {
@@ -40,7 +51,7 @@ export default class Tab11 extends React.Component {
             refreshing: true
         })
 
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
     delete(item){
@@ -85,17 +96,6 @@ export default class Tab11 extends React.Component {
         })
 
     }
-
-    componentDidMount(){
-        this.listenIncomeTransactions();
-        this._unsubscribe = this.props.navigation.addListener('focus', () => {
-            this.onRefresh();
-          });
-    }
-
-    componentWillUnmount() {
-        this._unsubscribe();
-      }
 
 
     render() {

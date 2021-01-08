@@ -77,15 +77,11 @@ export default class Overview extends React.Component {
         })
         this.getWallet();
 
-        setTimeout(() => {
-            this.onRefresh();
-        })
-
         this._unsubscribe = this.props.navigation.addListener('focus', () => {
             let check1 = recurringIncome();
             let check2 = recurringSpending();
 
-            if(check1 || check2){
+            if(true){
                 Toast.show({
                     type: 'info',
                     position: 'top',
@@ -133,13 +129,13 @@ export default class Overview extends React.Component {
             totalSpending4: getSpendingCurrentMonth(monthYear4[0], monthYear4[1]),
         })
         this.getWallet();
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
     render() {
         return (
             <SafeAreaView style={{backgroundColor: '#fff', flex: 1}}>
-                <Toast style={{zIndex: 10}}  ref={(ref) => Toast.setRef(ref)} />
+                <Toast style={{zIndex: 10,backgroundColor: "#9ad3bc" , paddingVertical: 10, marginHorizontal: 10, borderRadius: 10}}  ref={(ref) => Toast.setRef(ref)} />
                 <ScrollView
                     refreshControl={
                         <RefreshControl colors={["red", "green", "orange"]} refreshing={this.state.refreshing} onRefresh={() => this.onRefresh()} />

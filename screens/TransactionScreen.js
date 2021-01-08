@@ -233,7 +233,7 @@ export default class Transaction extends React.Component {
             this.listenSpedingTransactions();
         })
 
-        this.wait(2000).then(() => this.setState({ refreshing: false }));
+        this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 }
 
