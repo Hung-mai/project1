@@ -38,7 +38,7 @@ export default function CardItemButton({ navigation }) {
                 </Card>
 
                 <Card>
-                    <CardItem button onPress={() => navigation.navigate('PeriodicTransaction')}>
+                    <CardItem button onPress={() => navigation.navigate('PeriodicTransaction')} style={{ backgroundColor: "rgba(255, 111, 255, 0.3)" }}>
                         <Body>
                             <Text>
                                 Thiết lập khoản thu chi định kỳ
@@ -47,15 +47,6 @@ export default function CardItemButton({ navigation }) {
                     </CardItem>
                 </Card>
 
-                <Card>
-                    <CardItem button onPress={() => alert("This is Card Body")}>
-                        <Body>
-                            <Text>
-                                Log out
-                            </Text>
-                        </Body>
-                    </CardItem>
-                </Card>
             </Content>
         </Container>
     );
