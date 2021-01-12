@@ -81,7 +81,7 @@ export default class Overview extends React.Component {
             let check1 = recurringIncome();
             let check2 = recurringSpending();
 
-            if(true){
+            if(check1 || check2){
                 Toast.show({
                     type: 'info',
                     position: 'top',
