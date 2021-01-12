@@ -128,7 +128,7 @@ export default class Tab11 extends React.Component {
                                                             <Text style={{ fontSize: 14, marginTop: 2, color: "red" }}> {parseInt(spending.item.money).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + ' VND'} </Text>
                                                         </View>
                                                         <View style={{ flexDirection: "row", marginTop: 3 }}>
-                                                            <Text style={{ fontSize: 12 }}>Thu nhập</Text>
+                                                            <Text style={{ fontSize: 12 }}>Chi tiêu</Text>
                                                             <Text style={{ marginLeft: "auto", fontSize: 12 }}>{"Ngày "+spending.item.date+" hàng tháng"} </Text>
                                                         </View>
                                                     </View>
