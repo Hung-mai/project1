@@ -48,7 +48,7 @@ export default class Tab11 extends React.Component {
         this.setState({
             refreshing: true
         })
-
+        this.listenSpendingTransactions();
         this.wait(1000).then(() => this.setState({ refreshing: false }));
     }
 
